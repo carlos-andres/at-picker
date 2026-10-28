@@ -65,6 +65,15 @@ Update or remove it with `claude plugin update at-picker` and `claude plugin uni
 4. Press `6`, `p` or `t` to accept. The pane closes and the prompt receives the mentions, for example
    `@src/app.ts @tests/ `. Add your request and send.
 
+### Examples
+
+- **Review across folders:** open `src/`, pick `api.ts` and `types.ts`, go to `tests/`, pick `api.test.ts`, press `p`,
+  then ask "check that these tests cover every exported function".
+- **Give a whole folder as context:** pick `docs/` itself (it inserts `@docs/`) and ask "summarize what changed in
+  these docs".
+- **Find a file you cannot name:** press `5` to sort by date, pick the newest files, press `p` and ask "what did I
+  change last?".
+
 Paths that contain spaces are quoted (`@"docs/user guide.md"`). A file deleted after you picked it is skipped.
 
 ## Keys
@@ -137,6 +146,17 @@ reads the `HOME` and locale environment variables, and reads `permissions.additi
 Code settings. It sends nothing over the network and writes no files. The paths you accept go into the prompt, which
 you review before sending.
 
+### What each hook does
+
+No hook rewrites or blocks an event that belongs to anything else:
+
+- `session.start`: registers the `/at-picker` command and reads the locale, `HOME` and the remembered `/add-dir`
+  directories listed above, then passes the event on unchanged.
+- `classic.DirectoryAdded`: records the directory you added with `/add-dir`, so the pane lists it as a root, then passes
+  the event on unchanged.
+- `command.run`: matches `/at-picker` alone and answers it by opening or closing the pane. It sees no other command.
+- `ui.focus` and `ui.render`: match the at-picker pane alone, to draw it and move its cursor.
+
 ## Known limitations
 
 - **A name with both a space and a double quote** (`my "draft".md`) cannot be mentioned: Claude Code reads a quote
@@ -148,6 +168,16 @@ you review before sending.
   report them to plugins. Folders added with `/add-dir` during the session are listed, and so are the ones saved in
   your settings (`permissions.additionalDirectories`, the "remember" choice of `/add-dir`). To see a folder there
   in every session, save it in your settings instead of passing the flag.
+
+## Troubleshooting
+
+- **`/at-picker` is not found:** check `claude --version` (2.1.308 or newer) and that the plugin is enabled in
+  `/plugin`, then start a new session.
+- **The pane shows "Not enough room":** the docked pane needs a fullscreen terminal at least 110 columns wide. Widen
+  the window, or keep the default `inlineMode` (`panel`) so a narrow terminal shows the pane above the prompt.
+- **Keys type into the prompt instead of the pane:** the prompt holds the keyboard (`○ deact`). Press `Ctrl+X` `Tab`.
+- **Icons show as boxes or question marks:** set `icons` to `unicode`, or install a Nerd Font for `nerd`.
+- **Something else:** open an issue at https://github.com/carlos-andres/at-picker/issues.
 
 ## Development
 

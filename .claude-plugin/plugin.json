@@ -15,7 +15,9 @@
     "tui",
     "pane"
   ],
-  "types": "./types/index.d.ts",
+  "icon": "./.claude-plugin/icon.png",
+  "documentationUrl": "https://github.com/carlos-andres/at-picker#readme",
+  "supportUrl": "https://github.com/carlos-andres/at-picker/issues",
   "userConfig": {
     "icons": {
       "type": "string",

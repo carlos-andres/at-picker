@@ -99,8 +99,8 @@ for (const [uiLanguage, texts] of [
     mockTree(on, TREE)
     const ui = await $.ui.mount(pane())
     await ui.press({ key: 'help' })
-    for (const key of ['↑  w  i', '↓  s  k', 'd  l', 'a  j', '1  ◉', '4  ⌫', '5  ⇅', '6  p  t  ↵', '7  ?', '8  ✕  esc', 'ctrl+x tab', '/at-picker']) {
-      expect((await ui.find({ type: 'Text', text: new RegExp(`^${key.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&')}$`) }))?.text).toBe(key)
+    for (const cell of ['↑  w  i', '↓  s  k', 'd  l', 'a  j', '1  ◉', '4  ⌫', '5  ⇅', '6  p  t  ↵', '7  ?', '8  ✕  esc', 'ctrl+x tab', '/at-picker']) {
+      expect((await ui.find({ type: 'Text', text: new RegExp(`^${cell.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&')}$`) }))?.text).toBe(cell)
     }
     for (const text of texts) expect((await ui.find({ type: 'Text', text }))?.text).toBe(text)
     await ui.unmount()
