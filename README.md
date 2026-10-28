@@ -144,7 +144,8 @@ it at the new size. In a narrow dock the toolbar wraps into rows of four (or thr
 at-picker only reads. It lists directories under your working directory and the roots you added with `/add-dir`,
 reads the `HOME` and locale environment variables, and reads `permissions.additionalDirectories` from your Claude
 Code settings. It sends nothing over the network and writes no files. The paths you accept go into the prompt, which
-you review before sending.
+you review before sending. The full [Privacy Policy](PRIVACY.md) and [Terms of Service](TERMS.md) are in this
+repository.
 
 ### What each hook does
 

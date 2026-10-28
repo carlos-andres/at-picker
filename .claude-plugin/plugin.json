@@ -18,6 +18,8 @@
   "icon": "./.claude-plugin/icon.png",
   "documentationUrl": "https://github.com/carlos-andres/at-picker#readme",
   "supportUrl": "https://github.com/carlos-andres/at-picker/issues",
+  "privacyPolicyUrl": "https://github.com/carlos-andres/at-picker/blob/main/PRIVACY.md",
+  "termsOfServiceUrl": "https://github.com/carlos-andres/at-picker/blob/main/TERMS.md",
   "userConfig": {
     "icons": {
       "type": "string",
