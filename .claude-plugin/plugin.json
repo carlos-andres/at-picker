@@ -1,0 +1,82 @@
+{
+  "name": "at-picker",
+  "version": "0.1.0",
+  "description": "File picker pane that inserts @mentions into the prompt",
+  "author": {
+    "name": "Carlos A Loaiza O",
+    "url": "https://github.com/carlos-andres"
+  },
+  "homepage": "https://github.com/carlos-andres/at-picker",
+  "repository": "https://github.com/carlos-andres/at-picker",
+  "license": "MIT",
+  "keywords": [
+    "file-picker",
+    "mentions",
+    "tui",
+    "pane"
+  ],
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "icons": {
+      "type": "string",
+      "title": "Toolbar icons",
+      "description": "unicode: glyphs any monospace font draws. nerd: Nerd Font icons (an eye for hidden files); needs a Nerd Font in the terminal.",
+      "options": [
+        "unicode",
+        "nerd"
+      ],
+      "default": "unicode"
+    },
+    "uiLanguage": {
+      "type": "string",
+      "title": "Interface language",
+      "description": "auto follows the terminal locale (LC_ALL, LC_MESSAGES, LANG); English when it is not Spanish.",
+      "options": [
+        "auto",
+        "en",
+        "es"
+      ],
+      "default": "auto"
+    },
+    "dockWidthPercent": {
+      "type": "number",
+      "title": "Dock width (%)",
+      "description": "Width of the docked picker as a share of the terminal; at least 24 columns, at most 45%.",
+      "default": 30
+    },
+    "inlineMode": {
+      "type": "string",
+      "title": "Below 110 columns",
+      "description": "panel: show the picker inline above the prompt. message: show only an insufficient-space notice.",
+      "options": [
+        "panel",
+        "message"
+      ],
+      "default": "panel"
+    },
+    "inlineRows": {
+      "type": "number",
+      "title": "Inline height (rows)",
+      "description": "Body rows asked for when the picker sits inline; the engine trims it to what the layout spares.",
+      "default": 20
+    },
+    "showHidden": {
+      "type": "boolean",
+      "title": "Show hidden files",
+      "description": "List dotfiles and dot-directories. The 1 key toggles it for the session.",
+      "default": false
+    },
+    "sortDirs": {
+      "type": "boolean",
+      "title": "Sort folders too",
+      "description": "Apply the 5 key's sort order to folders as well; folders still come first. Off: folders always by name. By size, folders stay by name (a folder has no size of its own).",
+      "default": false
+    },
+    "debug": {
+      "type": "boolean",
+      "title": "Debug log",
+      "description": "Log pane sizes and actions to Claude Code's debug log (claude --debug) and show a diagnostic header. Development only.",
+      "default": false
+    }
+  }
+}

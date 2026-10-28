@@ -1,0 +1,13 @@
+{
+  "name": "at-picker",
+  "owner": {
+    "name": "Carlos A Loaiza O"
+  },
+  "description": "at-picker: a file picker pane for Claude Code that writes @mentions into the prompt",
+  "plugins": [
+    {
+      "name": "at-picker",
+      "source": "./"
+    }
+  ]
+}
